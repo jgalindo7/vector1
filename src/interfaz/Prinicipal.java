@@ -47,6 +47,9 @@ public class Prinicipal extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtResultado = new javax.swing.JTextArea();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -130,7 +133,7 @@ public class Prinicipal extends javax.swing.JFrame {
                 cmdBorrarActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, -1, -1));
+        jPanel1.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, -1, -1));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado"));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -140,19 +143,30 @@ public class Prinicipal extends javax.swing.JFrame {
         txtResultado.setRows(5);
         jScrollPane1.setViewportView(txtResultado);
 
-        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 140, -1));
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 170, -1));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 170, 130));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 200, 130));
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado vectores"));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
+
+        jPanel5.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 146, 90));
+
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 170, 130));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
         );
 
         pack();
@@ -219,20 +233,20 @@ public class Prinicipal extends javax.swing.JFrame {
             case 0:
                 for (int i = 0; i < v.length; i++) {
                    suma = v[i] + suma;
-                   txtResultado.setText(suma+"");
+                   txtResultado.setText("la sumatoria del vector es : "+suma);
                 }                     
                 break;
             case 1:
                 for (int i = 1; i < v.length; i++) {
                    productoria = v[i] * productoria;
-                   txtResultado.setText(productoria+"");
+                   txtResultado.setText("la productoria del vector es de :" +productoria);
                 }
                 break;
             case 2:
                 for (int i = 0; i < v.length; i++) {
                    if (v[i] > mayor){
                        mayor=v[i];    
-                       txtResultado.setText(mayor+"");
+                       txtResultado.setText("el numero mayor del vetor es :" +mayor);
                    } 
                 }
                 break;
@@ -240,7 +254,7 @@ public class Prinicipal extends javax.swing.JFrame {
                 for (int i = 0; i < v.length; i++) {
                     if (v[i] < menor);
                     menor=v[i];    
-                    txtResultado.setText(menor+"");    
+                    txtResultado.setText("el numero mayor del vector es :" +menor);    
                 }
                 break;
             
@@ -330,7 +344,10 @@ public class Prinicipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txtLongitud;
     private javax.swing.JTextArea txtResultado;
     // End of variables declaration//GEN-END:variables
