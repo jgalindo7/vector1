@@ -130,7 +130,7 @@ public class Prinicipal extends javax.swing.JFrame {
                 cmdBorrarActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, -1, -1));
+        jPanel1.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, -1, -1));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado"));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -140,7 +140,7 @@ public class Prinicipal extends javax.swing.JFrame {
         txtResultado.setRows(5);
         jScrollPane1.setViewportView(txtResultado);
 
-        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 140, -1));
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 140, -1));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 170, 130));
 
@@ -213,7 +213,7 @@ public class Prinicipal extends javax.swing.JFrame {
 
     private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
         int op;
-        double suma = 0, productoria = 0 , mayor = 0, menor = 0;
+        double suma = 0, productoria = 1 , mayor = 0, menor = 0 ;
         op = cmbOpciones.getSelectedIndex();
         switch (op) {
             case 0:
@@ -230,23 +230,24 @@ public class Prinicipal extends javax.swing.JFrame {
                 break;
             case 2:
                 for (int i = 0; i < v.length; i++) {
-                   if (v[i] > mayor);
-                    mayor=v[i];    
-                    txtResultado.setText(mayor+"");
+                   if (v[i] > mayor){
+                       mayor=v[i];    
+                       txtResultado.setText(mayor+"");
+                   } 
                 }
                 break;
             case 3:
                 for (int i = 0; i < v.length; i++) {
                     if (v[i] < menor);
-                    menor=v[i];  
-                    txtResultado.setText(menor+"");
+                    menor=v[i];    
+                    txtResultado.setText(menor+"");    
                 }
                 break;
             
         }
         
       
-        
+    
         
 
 
