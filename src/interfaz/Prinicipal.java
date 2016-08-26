@@ -20,6 +20,7 @@ public class Prinicipal extends javax.swing.JFrame {
     
     public Prinicipal() {
         initComponents();
+        this.setLocationRelativeTo(this);
     }
 
     /**
@@ -43,13 +44,14 @@ public class Prinicipal extends javax.swing.JFrame {
         cmdLlenadoManual = new javax.swing.JButton();
         cmdLlenadoAutomatico = new javax.swing.JButton();
         cmdCalcular = new javax.swing.JButton();
+        cmdMostrar = new javax.swing.JButton();
         cmdBorrar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtResultado = new javax.swing.JTextArea();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtVectores = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -125,7 +127,15 @@ public class Prinicipal extends javax.swing.JFrame {
         });
         jPanel3.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 160, 150));
+        cmdMostrar.setText("Mostrar");
+        cmdMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdMostrarActionPerformed(evt);
+            }
+        });
+        jPanel3.add(cmdMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 160, 180));
 
         cmdBorrar.setText("Borrar");
         cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
@@ -150,13 +160,13 @@ public class Prinicipal extends javax.swing.JFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado vectores"));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        txtVectores.setColumns(20);
+        txtVectores.setRows(5);
+        jScrollPane2.setViewportView(txtVectores);
 
         jPanel5.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 146, 90));
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 170, 130));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, 170, 130));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -193,9 +203,10 @@ public class Prinicipal extends javax.swing.JFrame {
         
         txtLongitud.setText("");
         txtResultado.setText("");
+        txtVectores.setText("");
         v = null;
         txtLongitud.requestFocusInWindow();
-        
+        cmbOpciones.setSelectedIndex(0);
         
         
     }//GEN-LAST:event_cmdBorrarActionPerformed
@@ -227,35 +238,42 @@ public class Prinicipal extends javax.swing.JFrame {
 
     private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
         int op;
-        double suma = 0, productoria = 1 , mayor = 0, menor = 0 ;
+        double suma = 0, productoria = 1 , mayor, menor ;
         op = cmbOpciones.getSelectedIndex();
         switch (op) {
             case 0:
                 for (int i = 0; i < v.length; i++) {
                    suma = v[i] + suma;
-                   txtResultado.setText("la sumatoria del vector es : "+suma);
+                   
                 }                     
+                txtResultado.setText("la sumatoria del vector es : "+suma);
                 break;
             case 1:
                 for (int i = 1; i < v.length; i++) {
                    productoria = v[i] * productoria;
-                   txtResultado.setText("la productoria del vector es de :" +productoria);
+                  
                 }
+                txtResultado.setText("la productoria del vector es de :" +productoria);
                 break;
             case 2:
-                for (int i = 0; i < v.length; i++) {
+                mayor = v[0];
+                for (int i = 1; i < v.length; i++) {
                    if (v[i] > mayor){
                        mayor=v[i];    
-                       txtResultado.setText("el numero mayor del vetor es :" +mayor);
+                       
                    } 
                 }
+                txtResultado.setText("el numero mayor del vector es :" +mayor);
                 break;
             case 3:
-                for (int i = 0; i < v.length; i++) {
-                    if (v[i] < menor);
+                menor = v[0];
+                for (int i = 1; i < v.length; i++) {
+                    if (v[i] < menor){
                     menor=v[i];    
-                    txtResultado.setText("el numero mayor del vector es :" +menor);    
+                    }
+                    
                 }
+                txtResultado.setText("el numero menor del vector es :" +menor);    
                 break;
             
         }
@@ -294,6 +312,15 @@ public class Prinicipal extends javax.swing.JFrame {
     private void cmbOpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbOpcionesActionPerformed
         
     }//GEN-LAST:event_cmbOpcionesActionPerformed
+
+    private void cmdMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMostrarActionPerformed
+       
+            for (int i = 0; i < v.length; i++) {
+            txtVectores.append(v[i]+"\n");
+        }
+        
+        
+    }//GEN-LAST:event_cmdMostrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -337,6 +364,7 @@ public class Prinicipal extends javax.swing.JFrame {
     private javax.swing.JButton cmdCrear;
     private javax.swing.JButton cmdLlenadoAutomatico;
     private javax.swing.JButton cmdLlenadoManual;
+    private javax.swing.JButton cmdMostrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -347,8 +375,8 @@ public class Prinicipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txtLongitud;
     private javax.swing.JTextArea txtResultado;
+    private javax.swing.JTextArea txtVectores;
     // End of variables declaration//GEN-END:variables
 }
